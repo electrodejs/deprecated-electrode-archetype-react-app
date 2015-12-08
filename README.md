@@ -1,4 +1,4 @@
-Builder Archetype: React App
+Builder Archetype: Electrode React App
 ==================================
 
 A React app archetype for [builder][].
