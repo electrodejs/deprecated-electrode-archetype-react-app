@@ -1,4 +1,4 @@
-Builder Archetype: React Component
+Builder Archetype: React App
 ==================================
 
 A React app archetype for [builder][].
