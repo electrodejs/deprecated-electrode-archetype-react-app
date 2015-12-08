@@ -12,7 +12,7 @@ Run `npm run builder:check`
 To generate the usage snippet in the `README.md`, run:
 
 ```sh
-$ builder help electrode-archetype-react-app
+$ builder help @walmart/electrode-archetype-react-app
 ```
 
 in any project where this archetype is installed and paste in the output.
