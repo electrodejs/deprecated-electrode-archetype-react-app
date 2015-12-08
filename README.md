@@ -10,7 +10,6 @@ and the development module:
 
 ```sh
 $ npm install --save builder electrode-archetype-react-app
-$ npm install --save-dev electrode-archetype-react-app-dev
 ```
 
 ## Usage Notes
