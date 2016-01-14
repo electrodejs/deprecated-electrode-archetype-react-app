@@ -9,7 +9,7 @@ To use the production and development workflows, install both this package
 and the development module:
 
 ```sh
-$ npm install --save builder electrode-archetype-react-app
+$ npm install --save builder @walmart/electrode-archetype-react-app
 ```
 
 ## Usage Notes
@@ -19,10 +19,18 @@ should specify its own in the root directory if you want non-default Babel
 settings (like using stage 0, for instance). See [the recommended
 settings](config/babel/.babelrc).
 
+You should have a `.builderrc` file in your app's root directory:
+
+```
+---
+archetypes:
+  - "@walmart/electrode-archetype-react-app"
+```
+
 ## Tasks
 
 ```
-$ builder help electrode-archetype-react-app
+$ builder help
 
 [builder:help]
 
