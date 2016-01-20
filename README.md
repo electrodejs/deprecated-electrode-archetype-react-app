@@ -1,30 +1,33 @@
-Builder Archetype: Electrode React App
-==================================
+# Builder Archetype: Electrode React App
 
-A React app archetype for [builder][].
+A Walmart Labs flavored react app archetype for [builder][].
 
 ## Installation
 
-To use the production and development workflows, install both this package
-and the development module:
+If you want to use `builder` as a CLI tool (recommended), follow the instructions at [formidablelabs/builder to modify your `PATH`](https://github.com/formidablelabs/builder#local-install)
 
-```sh
+###### run the following in your project
+```bash
 $ npm install --save builder @walmart/electrode-archetype-react-app
 ```
 
-## Usage Notes
+###### Add a `.builderrc`
+The `.builderrc` should contain the following and be located in the root of your project
 
-This archetype does not currently specify its own `.babelrc`. Your project
-should specify its own in the root directory if you want non-default Babel
-settings (like using stage 0, for instance). See [the recommended
-settings](config/babel/.babelrc).
-
-You should have a `.builderrc` file in your app's root directory:
-
-```
+```yaml
 ---
 archetypes:
   - "@walmart/electrode-archetype-react-app"
+```
+
+###### Add a `.babelrc` to your project
+The `.babelrc` needs to extend
+[the archetype's babel configuration](config/babel/.babelrc) in order to apply the presents (ES2015, React) and the plugins like i18n. If your project needs additional Babel settings (like using stage 0 features) you can add them to this file. See the [Babel docs](https://babeljs.io/docs/usage/babelrc/) for more information.
+
+```json
+{
+  "extends": "./node_modules/@walmart/electrode-archetype-react-component/config/babel/.babelrc"
+}
 ```
 
 ## Tasks
