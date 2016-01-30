@@ -7,7 +7,9 @@
     "url": "git@gecgithub01.walmart.com:electrode/electrode-archetype-react-app.git"
   },
   "scripts": {
-    "build": "builder run clean-dist && webpack --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.js",
+    "build-dist-min": "webpack --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.js --colors",
+    "build-dist": "builder run clean-dist && builder run build-dist-min",
+    "build": "builder run build-dist",
     "check-ci": "builder run lint && builder run test-frontend-ci",
     "check-cov": "builder run lint && builder run test-frontend-cov",
     "check-dev": "builder run lint && builder run test-frontend-dev",
