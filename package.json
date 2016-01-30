@@ -41,7 +41,6 @@
     "@walmart/stylus-tenants": "^1.0.12",
     "@walmart/webpack-tenants": "^1.0.0",
     "autoprefixer-stylus": "^0.8.1",
-    "babel": "^6.3.26",
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
     "babel-plugin-transform-object-rest-spread": "^6.3.13",
