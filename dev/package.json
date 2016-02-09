@@ -1,6 +1,6 @@
 {
   "name": "@walmart/electrode-archetype-react-app-dev",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Builder Archetype - Electrode App (Development)",
   "repository": {
     "type": "git",
@@ -36,5 +36,10 @@
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "peerDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1"
+  }
 }
