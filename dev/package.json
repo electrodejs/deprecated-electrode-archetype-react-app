@@ -1,6 +1,6 @@
 {
   "name": "@walmart/electrode-archetype-react-app-dev",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Builder Archetype - Electrode App (Development)",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "eslint-config-defaults": "~7.0.0",
     "eslint-plugin-filenames": "~0.1.2",
     "eslint-plugin-react": "~3.6.3",
-    "isparta-loader": "^1.0.0",
+    "isparta-loader": "^2.0.0",
     "istanbul": "^0.3.18",
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.0",

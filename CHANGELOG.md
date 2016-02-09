@@ -3,6 +3,28 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
+                                          Archetype-Next
+
+## x.x.x (xxxx-xx-xx)
+
+#### User Facing Changes
+
+#### Internal Changes
+
+* Correct README
+
+####################################################################################################
+
+## 2.1.0 (2016-02-08)
+
+#### User Facing Changes
+
+* Correct Babel5/6 conflict by upgrading isparta-loader to 2.x
+* Correct test error where babel-polyfill was incorrectly required
+
+#### Internal Changes
+
+* Add babel-eslint and eslint-plugin-filenames devDependencies
 
 ## 2.0.0 (2016-02-03)
 
