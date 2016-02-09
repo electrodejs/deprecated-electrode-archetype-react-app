@@ -26,7 +26,7 @@ The `.babelrc` needs to extend
 
 ```json
 {
-  "extends": "./node_modules/@walmart/electrode-archetype-react-component/config/babel/.babelrc"
+  "extends": "./node_modules/@walmart/electrode-archetype-react-app/config/babel/.babelrc"
 }
 ```
 
