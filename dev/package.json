@@ -14,6 +14,7 @@
   "scripts": {},
   "dependencies": {
     "babel-eslint": "^4.0.10",
+    "babel-polyfill": "6.5.0",
     "chai": "^3.2.0",
     "eslint": "~1.7.0",
     "eslint-config-defaults": "~7.0.0",
