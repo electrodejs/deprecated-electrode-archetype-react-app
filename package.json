@@ -4,8 +4,13 @@
   "description": "Builder Archetype - Electrode App",
   "repository": {
     "type": "git",
-    "url": "git@gecgithub01.walmart.com:electrode/electrode-archetype-react-app.git"
+    "url": "https://gecgithub01.walmart.com:electrode/electrode-archetype-react-app.git"
   },
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/issues"
+  },
+  "homepage": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/README.md",
+  "license": "UNLICENSED",
   "scripts": {
     "build-dist-min": "webpack --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.js --colors",
     "build-dist": "builder run clean-dist && builder run build-dist-min",
