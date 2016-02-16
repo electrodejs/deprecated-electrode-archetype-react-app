@@ -35,7 +35,7 @@
     "npm:test": "builder run check",
     "server": "node server/index.js",
     "server-debug": "node debug server/index.js",
-    "server-watch": "nodemon --watch client --watch server --watch config server/index.js --exec babel-node",
+    "server-watch": "nodemon --ext js,jsx --watch client --watch server --watch config server/index.js --exec babel-node",
     "server-dev": "webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.dev.js --progress --colors --port 2992",
     "server-hot": "webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.hot.js --hot --progress --colors --port 2992 --inline",
     "server-test": "webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.test.js --progress --colors --port 3001",
