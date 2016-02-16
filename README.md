@@ -47,7 +47,7 @@ $ builder run test-watch-all
 
 ```bash
 # This will build your code and save to disk, and then start a node server (without using webpack-dev-server).
-$ builder run dev
+$ builder run dev-static
 ```
 
 #### Is there anything else that might be nice for my development?
@@ -60,7 +60,7 @@ $ builder run debug
 #### How do I fix the following nodemon and/or babel error in my project?
 
 ```bash
-[builder:proc:start] Command: nodemon --watch client --watch client --watch server --watch config server/index.js --exec babel-node
+[builder:proc:start] Command: nodemon --watch client --watch client --watch server --watch config server/index.js --exec node
 [nodemon] 1.8.1
 [nodemon] to restart at any time, enter `rs`
 [nodemon] watching: $HOME/walmart/my-electrode-project/client/**/* $HOME/walmart/my-electrode-project/client/**/* $HOME/walmart/my-electrode-project/server/**/* $HOME/walmart/my-electrode-project/config/**/*
@@ -83,7 +83,7 @@ If you want to use `builder` as a CLI tool (recommended), follow the instruction
 ```bash
 $ npm install --save builder @walmart/electrode-archetype-react-app @walmart/electrode-archetype-react-app-dev
 
-# As apart of the peerDependencies in `@walmart/electrode-archetype-react-app-dev`, you will also need to install at least the following:
+# As a part of the peerDependencies in `@walmart/electrode-archetype-react-app-dev`, you will also need to install at least the following:
 $ npm install --save extract-text-webpack-plugin webpack-partial webpack-stats-plugin isparta-loader
 ```
 
@@ -210,7 +210,7 @@ Tasks:
     [@walmart/electrode-archetype-react-app] webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.test.js --progress --colors --port 3001
 
   server-watch
-    [@walmart/electrode-archetype-react-app] nodemon --ext js,jsx --watch client --watch server --watch config server/index.js --exec babel-node
+    [@walmart/electrode-archetype-react-app] nodemon --ext js,jsx --watch client --watch server --watch config server/index.js --exec node
 
   test-ci
     [@walmart/electrode-archetype-react-app] builder run test-frontend-ci
