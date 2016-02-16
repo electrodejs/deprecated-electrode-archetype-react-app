@@ -13,6 +13,9 @@ This "app archetype" provides for common patterns across all app projects so tha
 ```bash
 # This runs both the node server and webpack (in hot mode)
 $ builder run hot
+
+# Also try `dev` mode when running off battery power and you wish to maximize battery life.
+$ builder run dev
 ```
 
 #### What is `hot mode`?
@@ -91,11 +94,11 @@ $ builder help
 
 Usage:
 
-  builder [action] [task]
+  builder <action> <task(s)>
 
 Actions:
 
-  help, init, run, concurrent, install
+  run, concurrent, envs, help
 
 Flags: General
 
@@ -113,13 +116,13 @@ Tasks:
   build
     [@walmart/electrode-archetype-react-app] builder run build-dist
 
-  build-dev
-    [@walmart/electrode-archetype-react-app] builder run clean-dist && builder run build-dist-dev
+  build-dev-static
+    [@walmart/electrode-archetype-react-app] builder run clean-dist && builder run build-dist-dev-static
 
   build-dist
     [@walmart/electrode-archetype-react-app] builder run clean-dist && builder run build-dist-min
 
-  build-dist-dev
+  build-dist-dev-static
     [@walmart/electrode-archetype-react-app] webpack --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.dev.static.js --colors
 
   build-dist-min
@@ -138,13 +141,19 @@ Tasks:
     [@walmart/electrode-archetype-react-app] builder run lint && builder run test-dev
 
   clean
-    [@walmart/electrode-archetype-react-app] builder run clean-dist && builder run clean-lib
+    [@walmart/electrode-archetype-react-app] builder run clean-dist
 
   clean-dist
     [@walmart/electrode-archetype-react-app] rimraf dist
 
+  debug
+    [@walmart/electrode-archetype-react-app] builder run build-dev-static && builder run server-debug
+
   dev
-    [@walmart/electrode-archetype-react-app] builder run build-dev && builder run server
+    [@walmart/electrode-archetype-react-app] WEBPACK_DEV=true builder concurrent server-dev server-watch
+
+  dev-static
+    [@walmart/electrode-archetype-react-app] builder run build-dev-static && builder run server
 
   hot
     [@walmart/electrode-archetype-react-app] WEBPACK_DEV=true builder concurrent server-hot server-watch
@@ -171,16 +180,16 @@ Tasks:
     [@walmart/electrode-archetype-react-app] node debug server/index.js
 
   server-dev
-    [@walmart/electrode-archetype-react-app] builder run clean-dist && webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.dev.js --progress --colors --port 2992
+    [@walmart/electrode-archetype-react-app] webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.dev.js --progress --colors --port 2992
 
   server-hot
-    [@walmart/electrode-archetype-react-app] builder run clean-dist && webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.hot.js --hot --progress --colors --port 2992 --inline
+    [@walmart/electrode-archetype-react-app] webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.hot.js --hot --progress --colors --port 2992 --inline
 
   server-test
-    [@walmart/electrode-archetype-react-app] builder run clean-dist && webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.test.js --progress --colors --port 3001
+    [@walmart/electrode-archetype-react-app] webpack-dev-server --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.test.js --progress --colors --port 3001
 
   server-watch
-    [@walmart/electrode-archetype-react-app] nodemon --watch client --watch server --watch config server/index.js --exec babel-node
+    [@walmart/electrode-archetype-react-app] nodemon --ext js,jsx --watch client --watch server --watch config server/index.js --exec babel-node
 
   test-ci
     [@walmart/electrode-archetype-react-app] builder run test-frontend-ci
