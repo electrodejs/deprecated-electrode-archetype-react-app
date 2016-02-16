@@ -15,6 +15,27 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 3.0.1 (2016-02-16)
+
+#### User Facing Changes
+
+* Added tl;dr for common questions and quickstart.
+* Added `builder run dev-static` to build javascript and css for development without uglify.
+* Fixed `builder run server-watch` so that `nodemon` will update on JSX file changs.
+* Added `builder run debug` to re-build dev-static and run node server in debug mode.
+* Added l10n support.
+* Added extra image extension support for webpack builds.
+* Fix sourcemaps for webpack development to use `eval`.
+
+#### Internal Changes
+
+* Cleaned up webpack using webpack-partial to compose loaders and plugins.
+* Removed references to `builder run clean-lib` as this is only applicable to component repos.
+* Moved dev dependencies into /dev/ and/or as peerDependencies.
+* Added babel-polyfill to tests.
+* Point all webpack configuration 127.0.0.1 references to dev.walmart.com.
+* Add `engines` requirement to package.json for node v4 and npm v3.
+
 ## 2.1.0 (2016-02-08)
 
 #### User Facing Changes
