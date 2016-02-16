@@ -23,7 +23,7 @@
     "check-dev": "builder run lint && builder run test-dev",
     "clean": "builder run clean-dist",
     "clean-dist": "rimraf dist",
-    "debug": "builder run server-debug",
+    "debug": "builder run build-dev-static && builder run server-debug",
     "dev": "WEBPACK_DEV=true builder concurrent server-dev server-watch",
     "dev-static": "builder run build-dev-static && builder run server",
     "hot": "WEBPACK_DEV=true builder concurrent server-hot server-watch",
