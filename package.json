@@ -21,7 +21,7 @@
     "check-ci": "builder run lint && builder run test-ci",
     "check-cov": "builder run lint && builder run test-cov",
     "check-dev": "builder run lint && builder run test-dev",
-    "clean": "builder run clean-dist && builder run clean-lib",
+    "clean": "builder run clean-dist",
     "clean-dist": "rimraf dist",
     "debug": "builder run server-debug",
     "dev": "WEBPACK_DEV=true builder concurrent server-dev server-watch",
