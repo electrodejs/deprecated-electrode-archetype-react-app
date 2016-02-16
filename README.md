@@ -63,7 +63,7 @@ $ builder run debug
 [builder:proc:start] Command: nodemon --watch client --watch client --watch server --watch config server/index.js --exec babel-node
 [nodemon] 1.8.1
 [nodemon] to restart at any time, enter `rs`
-[nodemon] watching: /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/client/**/* /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/client/**/* /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/server/**/* /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/config/**/*
+[nodemon] watching: $HOME/walmart/my-electrode-project/client/**/* $HOME/walmart/my-electrode-project/client/**/* $HOME/walmart/my-electrode-project/server/**/* $HOME/walmart/my-electrode-project/config/**/*
 [nodemon] starting `babel-node server/index.js`
 You have mistakenly installed the `babel` package, which is a no-op in Babel 6.
 Babel's CLI commands have been moved from the `babel` package to the `babel-cli` package.
