@@ -57,13 +57,34 @@ $ builder run dev
 $ builder run debug
 ```
 
+#### How do I fix the following nodemon and/or babel error in my project?
+
+```bash
+[builder:proc:start] Command: nodemon --watch client --watch client --watch server --watch config server/index.js --exec babel-node
+[nodemon] 1.8.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/client/**/* /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/client/**/* /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/server/**/* /Users/daviddavidson/Desktop/dev/walmart/electrode/getting-started/config/**/*
+[nodemon] starting `babel-node server/index.js`
+You have mistakenly installed the `babel` package, which is a no-op in Babel 6.
+Babel's CLI commands have been moved from the `babel` package to the `babel-cli` package.
+
+    npm uninstall babel
+    npm install babel-cli
+```
+
+Ensure that you have removed only have `babel-cli`, `babel-core`, and `babel-loader` installed, and that you have removed `babel` and `babel-runtime`.
+
+
 ## Installation
 
 If you want to use `builder` as a CLI tool (recommended), follow the instructions at [formidablelabs/builder to modify your `PATH`](https://github.com/formidablelabs/builder#local-install)
 
 ###### run the following in your project
 ```bash
-$ npm install --save builder @walmart/electrode-archetype-react-app
+$ npm install --save builder @walmart/electrode-archetype-react-app @walmart/electrode-archetype-react-app-dev
+
+# As apart of the peerDependencies in `@walmart/electrode-archetype-react-app-dev`, you will also need to install at least the following:
+$ npm install --save extract-text-webpack-plugin webpack-partial webpack-stats-plugin isparta-loader
 ```
 
 ###### Add a `.builderrc`
