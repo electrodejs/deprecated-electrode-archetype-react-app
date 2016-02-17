@@ -14,9 +14,11 @@
   "scripts": {
     "build": "builder run build-dist",
     "build-dev-static": "builder run clean-dist && builder run build-dist-dev-static",
-    "build-dist": "builder run clean-dist && builder run build-dist-min",
+    "build-dist": "builder run clean-dist && builder run build-dist-min && builder run build-dist:flatten-l10n && builder run build-dist:clean-tmp",
     "build-dist-dev-static": "webpack --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.dev.static.js --colors",
     "build-dist-min": "webpack --config node_modules/@walmart/electrode-archetype-react-app/config/webpack/webpack.config.js --colors",
+    "build-dist:clean-tmp": "rimraf ./tmp",
+    "build-dist:flatten-l10n": "node node_modules/@walmart/electrode-archetype-react-component/scripts/l10n/flatten-messages.js",
     "check": "builder run lint && builder run test-cov",
     "check-ci": "builder run lint && builder run test-ci",
     "check-cov": "builder run lint && builder run test-cov",
