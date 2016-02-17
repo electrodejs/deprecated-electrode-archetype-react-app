@@ -1,10 +1,10 @@
 {
   "name": "@walmart/electrode-archetype-react-app",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Builder Archetype - Electrode App",
   "repository": {
     "type": "git",
-    "url": "https://gecgithub01.walmart.com:electrode/electrode-archetype-react-app.git"
+    "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app.git"
   },
   "bugs": {
     "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/issues"
