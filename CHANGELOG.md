@@ -11,9 +11,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Internal Changes
 
-* Correct README
-
 ####################################################################################################
+
+## 3.0.4
+
+#### Internal Changes
+
+* Correct README
+* Remove `karma-sinon-chai`
 
 ## 3.0.1 (2016-02-16)
 
