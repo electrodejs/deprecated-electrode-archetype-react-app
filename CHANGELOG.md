@@ -13,6 +13,23 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 3.1.0 (2016-02-24)
+
+#### User Facing Changes
+
+* Added es5-node and mocha lint updates for server code and tests
+* Added mocha, sinon, chai test support for server-only tests
+* Added `builder run test-server-cov` and `builder run test-server-dev` to run mocha tests
+* Updated webpack build to ignore files in `client/vendor`
+* Updated webpack/karma to only load `test/client` files
+* Updated webpack config to ignore `client/vendor` in addition to `node_modules`
+
+#### Internal Changes
+
+* Added .eslintrc-mocha-test for linting server tests
+* Added config/mocha/setup.js to setup sinonChai and `expect`
+* Updated karma `entry.js` to only load `test/client` files
+
 ## 3.0.4
 
 #### Internal Changes
