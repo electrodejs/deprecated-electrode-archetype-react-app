@@ -29,6 +29,8 @@
     "dev": "WEBPACK_DEV=true builder concurrent server-dev server-watch",
     "dev-static": "builder run build-dev-static && builder run server",
     "hot": "WEBPACK_DEV=true builder concurrent server-hot server-watch",
+    "install-dev-peer-dep": "PEER_DEPS=\"`node node_modules/@walmart/electrode-archetype-react-app/scripts/list-peer-dep.js dev`\"; if [ -n \"$PEER_DEPS\" ]; then npm i --save-dev $PEER_DEPS; fi",
+    "install-peer-dep": "PEER_DEPS=\"`node node_modules/@walmart/electrode-archetype-react-app/scripts/list-peer-dep.js`\"; if [ -n \"$PEER_DEPS\" ]; then npm i --save $PEER_DEPS; fi",
     "lint": "builder concurrent lint-client lint-client-test lint-server lint-server-test",
     "lint-client": "eslint --ext .js,.jsx -c node_modules/@walmart/electrode-archetype-react-app/config/eslint/.eslintrc-react client templates",
     "lint-client-test": "eslint --ext .js,.jsx -c node_modules/@walmart/electrode-archetype-react-app/config/eslint/.eslintrc-react-test test/client",
