@@ -106,6 +106,19 @@ The `.babelrc` needs to extend
 }
 ```
 
+###### Use `babel-core/register` in your server entry point
+
+If you don't have a build step for your server code, then you must transpile
+on the fly using `babel-register`. For performance reasons, we recommend
+whitelisting the `react` module to be transpiled as well, so that the
+`transform-node-env-inline` plugin gets applied to the React codebase:
+
+```js
+require("babel-core/register")({
+  ignore: /node_modules\/(?!react\/)/
+});
+```
+
 ## Tasks
 
 ```

@@ -22,6 +22,7 @@
     "babel-loader": "^6.2.1",
     "babel-plugin-i18n-id-hashing": "^2.1.0",
     "babel-plugin-react-intl": "^2.1.1",
+    "babel-plugin-transform-node-env-inline": "^6.5.0",
     "babel-plugin-transform-object-rest-spread": "^6.3.13",
     "babel-polyfill": "6.5.0",
     "babel-preset-es2015": "^6.3.13",
