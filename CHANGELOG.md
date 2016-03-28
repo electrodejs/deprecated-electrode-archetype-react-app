@@ -13,6 +13,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 3.4.5 (2016-03-28)
+
+#### Internal Changes
+
+* Re-enabled webpack `DedupePlugin` to decrease bundle size
+
 ## 3.1.0 (2016-02-24)
 
 #### User Facing Changes
