@@ -13,6 +13,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 3.4.7 (2016-04-01)
+
+#### User Facing Changes
+
+* Fix IE9 CSS prefix support
+
+#### Internal Changes
+
+* Add production Babel transforms and always build with `NODE_ENV=production`
+* Fix JS sourcemaps to not be overwritten by an empty CSS sourcemap
+
 ## 3.4.5 (2016-03-28)
 
 #### Internal Changes
