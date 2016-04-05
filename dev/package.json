@@ -42,6 +42,7 @@
     "file-loader": "^0.8.4",
     "fs-extra": "^0.26.5",
     "glob": "^7.0.3",
+    "isomorphic-loader": "^1.0.0",
     "isparta-loader": "^2.0.0",
     "istanbul": "^0.3.18",
     "json-loader": "^0.5.3",
@@ -81,7 +82,6 @@
     "url-loader": "^0.5.6",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
-    "webpack-isomorphic-tools": "^2.2.37",
     "webpack-partial": "^1.1.2",
     "webpack-stats-plugin": "^0.1.1"
   },
