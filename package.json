@@ -45,6 +45,7 @@
     "lint-server": "eslint -c ${npm_package_config_archetype}/config/eslint/.eslintrc-node server",
     "lint-server-test": "eslint -c ${npm_package_config_archetype}/config/eslint/.eslintrc-mocha-test test/server test/func",
     "npm:test": "builder run check",
+    "npm:release": "node ${npm_package_config_archetype}/scripts/map-isomorphic-cdn.js",
     "server": "node server/index.js",
     "server-debug": "node debug server/index.js",
     "server-watch": "nodemon --ext js,jsx --watch client --watch server --watch config server/index.js --exec node",
