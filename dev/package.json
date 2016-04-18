@@ -1,6 +1,6 @@
 {
   "name": "@walmart/electrode-archetype-react-app-dev",
-  "version": "3.5.2",
+  "version": "3.6.0",
   "description": "Builder Archetype - Electrode App (Development)",
   "repository": {
     "type": "git",
@@ -11,6 +11,9 @@
   },
   "homepage": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/README.md",
   "license": "UNLICENSED",
+  "config": {
+    "archetype": "node_modules/@walmart/electrode-archetype-react-app"
+  },
   "scripts": {},
   "dependencies": {
     "@walmart/cdn-file-loader": "^1.0.0",

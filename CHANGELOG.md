@@ -13,6 +13,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 3.6.0 (2016-04-18)
+
+#### User Facing Changes
+
+* Only supported `moment` locales are included in the client-side bundle
+
+#### Internal Changes
+
+* Add `map-isomorphic-cdn` script
+
 ## 3.4.7 (2016-04-01)
 
 #### User Facing Changes
