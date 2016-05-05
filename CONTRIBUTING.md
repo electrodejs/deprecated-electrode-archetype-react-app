@@ -26,17 +26,7 @@ Check the archetype configs:
 $ npm run builder:check
 ```
 
-Check a fresh init'ed project:
-
-```sh
-$ npm install -g builder-init
-$ cd /TEMP/DIR
-$ builder-init /PATH/TO/ARCHETYPE
-(answer prompts)
-$ cd NEW_PROJ
-$ npm install
-$ builder run check-cov
-```
+TODO: Update `npm init` [#132](https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/issues/132)
 
 ## Documentation
 
