@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "builder run build-dist",
+    "build-browser-coverage": "builder run clean-dist && NODE_ENV=production webpack --config ${npm_package_config_archetype}/config/webpack/webpack.config.browsercoverage.js --colors && builder run build-dist:flatten-l10n && builder run build-dist:clean-tmp",
     "build-dev-static": "builder run clean-dist && builder run build-dist-dev-static",
     "build-dist": "builder run clean-dist && builder run build-dist-min && builder run build-dist:flatten-l10n && builder run build-dist:clean-tmp",
     "build-dist-dev-static": "webpack --config ${npm_package_config_archetype}/config/webpack/webpack.config.dev.static.js --colors",
