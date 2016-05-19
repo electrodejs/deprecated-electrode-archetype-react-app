@@ -45,6 +45,8 @@
     "lint-client-test": "eslint --ext .js,.jsx -c ${npm_package_config_archetype}/config/eslint/.eslintrc-react-test test/client",
     "lint-server": "eslint -c ${npm_package_config_archetype}/config/eslint/.eslintrc-node server",
     "lint-server-test": "eslint -c ${npm_package_config_archetype}/config/eslint/.eslintrc-mocha-test test/server test/func",
+    "optimize-stats": "OPTIMIZE_STATS=true builder run build && builder run optimize-stats-gen",
+    "optimize-stats-gen": "node ${npm_package_config_archetype}/scripts/gen-optimize-stats.js dist/js/bundle.*.js > optimize-stats.txt",
     "npm:test": "builder run check",
     "npm:release": "node ${npm_package_config_archetype}/scripts/map-isomorphic-cdn.js",
     "server": "node server/index.js",

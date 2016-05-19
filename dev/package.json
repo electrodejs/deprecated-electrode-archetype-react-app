@@ -19,6 +19,7 @@
     "@walmart/cdn-file-loader": "^1.0.0",
     "@walmart/stylus-tenants": "^1.0.12",
     "@walmart/webpack-tenants": "^1.0.0",
+    "acorn": "^3.1.0",
     "autoprefixer-stylus": "^0.9.1",
     "babel-cli": "^6.4.5",
     "babel-core": "^6.4.0",
