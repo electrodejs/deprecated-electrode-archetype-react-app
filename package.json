@@ -1,6 +1,6 @@
 {
   "name": "@walmart/electrode-archetype-react-app",
-  "version": "3.10.0",
+  "version": "4.0.0",
   "description": "Builder Archetype - Electrode App",
   "repository": {
     "type": "git",
