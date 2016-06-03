@@ -13,6 +13,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 6.1.0 (2016-06-03)
+
+#### Internal Changes
+
+* Remove `lodash-webpack-plugin` as it was silently breaking some functionality
+
+
 ## 3.6.0 (2016-04-18)
 
 #### User Facing Changes
