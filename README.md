@@ -74,6 +74,19 @@ Babel's CLI commands have been moved from the `babel` package to the `babel-cli`
 
 Ensure that you have removed only have `babel-cli`, `babel-core`, and `babel-loader` installed, and that you have removed `babel` and `babel-runtime`.
 
+#### How do I view my test result in the browser?
+
+Run either of the below commands before opening the link.
+
+```
+builder run server-test
+builder run dev # (OR) (which includes `server-test`)
+builder run hot # (OR) (which includes `server-test`)
+```
+This will serve the static assets for test.html
+
+open [test.html]((http://localhost:3001/node_modules/%40walmart/electrode-archetype-react-app/config/browser_test/test.html)) to view test result.
+
 
 ## Installation
 
