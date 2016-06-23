@@ -11,12 +11,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Internal Changes
 
+####################################################################################################
+
+## 6.3.0 (2016-06-23)
+
+#### Internal Changes
+
 * Use `stylus-relative-loader`, which supports dynamic import paths for
   multi-tenancy purposes.
 * Add `stylus` as a dependency and upgrade to 0.54.5. `stylus-relative-loader`
   (and newer versions of `stylus-loader`) declare it as a `peerDependency`.
-
-####################################################################################################
 
 ## 6.1.0 (2016-06-03)
 
