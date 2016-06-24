@@ -132,6 +132,21 @@ require("babel-core/register")({
 });
 ```
 
+###### Define client entry points
+
+By default, the archetype uses `client/app.js` or `client/app.jsx` as a client entry point. Alternatively,
+you can define multiple entry points for your application, so the Webpack will create bundles for each app
+entry point. To do that, place `entry.config.js` module into your app's `client` directory:
+
+Here is an **example** of `entry.config.js`:
+```js
+module.exports = {
+  "web": "./app-web.js",
+  "ios": "./app-ios.js",
+  "android": "./app-android.js"
+};
+```
+
 ## Tasks
 
 ```

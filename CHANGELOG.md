@@ -13,6 +13,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 7.0.1 (2016-06-23)
+
+#### User Facing Changes
+
+* Added support for multiple bundles and multiple entry points. Read more here:
+  https://gecgithub01.walmart.com/electrode/proposals/issues/119
+
 ## 6.3.0 (2016-06-23)
 
 #### Internal Changes
