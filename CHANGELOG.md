@@ -13,6 +13,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 7.0.2 (2016-07-01)
+
+#### User Facing Changes
+
+* Added support for CSS prefixing more browsers. 
+  This will make css transforms work on Android for example
+
 ## 7.0.1 (2016-06-23)
 
 #### User Facing Changes
