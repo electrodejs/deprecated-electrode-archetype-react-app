@@ -13,6 +13,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ####################################################################################################
 
+## 7.0.3 (2016-07-08)
+
+#### User Facing Changes
+
+* Make `builder run hot` to work with multi-bundles
+
 ## 7.0.2 (2016-07-01)
 
 #### User Facing Changes
