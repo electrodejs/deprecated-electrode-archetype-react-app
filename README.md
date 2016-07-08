@@ -87,6 +87,21 @@ This will serve the static assets for test.html
 
 open [test.html]((http://localhost:3001/node_modules/%40walmart/electrode-archetype-react-app/config/browser_test/test.html)) to view test result.
 
+#### How do I build assets for optimization analysis with `inspectpack`?
+
+[inspectpack](https://github.com/FormidableLabs/inspectpack) uses a production Webpack build with
+the following tweaks:
+
+* `output.pathinfo` enabled
+* Minification disabled
+
+We provide the convenient env variable `npm_package_config_inspectpack_debug` to enable this. So
+to create a JS bundle capable of ingestion into `inspectpack`, simply do:
+
+```sh
+$ npm_package_config_inspectpack_debug=true builder run build
+```
+
 
 ## Installation
 
