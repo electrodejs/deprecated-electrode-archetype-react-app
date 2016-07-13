@@ -99,7 +99,7 @@ We provide the convenient env variable `npm_package_config_inspectpack_debug` to
 to create a JS bundle capable of ingestion into `inspectpack`, simply do:
 
 ```sh
-$ npm_package_config_inspectpack_debug=true builder run build
+$ INSPECTPACK_DEBUG=true builder run build
 ```
 
 
