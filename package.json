@@ -12,8 +12,7 @@
   "homepage": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/README.md",
   "license": "UNLICENSED",
   "config": {
-    "archetype": "node_modules/@walmart/electrode-archetype-react-app",
-    "inspectpack_debug": "false"
+    "archetype": "node_modules/@walmart/electrode-archetype-react-app"
   },
   "scripts": {
     "build": "builder run build-dist",
