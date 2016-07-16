@@ -2,6 +2,7 @@
   "name": "@walmart/electrode-archetype-react-app",
   "version": "7.1.0",
   "description": "Builder Archetype - Electrode App",
+  "main": "arch-gulpfile.js",
   "repository": {
     "type": "git",
     "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app.git"
