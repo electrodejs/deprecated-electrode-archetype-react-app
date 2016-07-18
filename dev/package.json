@@ -17,7 +17,7 @@
   "scripts": {},
   "dependencies": {
     "@walmart/cdn-file-loader": "^1.0.0",
-    "@walmart/electrode-gulp-load-tasks": "^0.1.2",
+    "@walmart/electrode-gulp-load-tasks": "^1.0.0",
     "@walmart/stylus-tenants": "^1.0.12",
     "@walmart/webpack-tenants": "^1.0.0",
     "acorn": "^3.1.0",
