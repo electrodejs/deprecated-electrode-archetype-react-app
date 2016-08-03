@@ -1,7 +1,7 @@
 {
   "name": "@walmart/electrode-archetype-react-app-dev",
   "version": "7.1.0",
-  "description": "Builder Archetype - Electrode App (Development)",
+  "description": "Electrode NodeJS/React Application Archetype (Development)",
   "repository": {
     "type": "git",
     "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app.git"
@@ -10,14 +10,10 @@
     "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/issues"
   },
   "homepage": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/README.md",
-  "license": "UNLICENSED",
-  "config": {
-    "archetype": "node_modules/@walmart/electrode-archetype-react-app"
-  },
+  "license": "MIT",
   "scripts": {},
   "dependencies": {
     "@walmart/cdn-file-loader": "^1.0.0",
-    "@walmart/electrode-gulp-load-tasks": "^1.0.0",
     "@walmart/stylus-tenants": "^1.0.12",
     "@walmart/webpack-tenants": "^1.0.0",
     "acorn": "^3.1.0",
@@ -43,6 +39,7 @@
     "chalk": "^1.1.1",
     "css-loader": "^0.23.1",
     "css-split-webpack-plugin": "^0.2.0",
+    "electrode-gulp-helper": "^1.0.0",
     "eslint": "^1.7.0",
     "eslint-config-defaults": "^7.0.0",
     "eslint-plugin-filenames": "^0.1.2",
