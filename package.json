@@ -1,16 +1,16 @@
 {
-  "name": "@walmart/electrode-archetype-react-app",
-  "version": "7.1.0",
-  "description": "Electrode NodeJS/React Application Archetype",
+  "name": "electrode-archetype-react-app",
+  "version": "1.0.0",
+  "description": "Electrode NodeJS/React Isomorphic Application Archetype",
   "main": "arch-gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app.git"
+    "url": "https://github.com/electrode-io/electrode-archetype-react-app.git"
   },
   "bugs": {
-    "url": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/issues"
+    "url": "https://github.com/electrode-io/electrode-archetype-react-app/issues"
   },
-  "homepage": "https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/README.md",
+  "homepage": "https://github.com/electrode-io/electrode-archetype-react-app",
   "license": "MIT",
   "scripts": {
   },

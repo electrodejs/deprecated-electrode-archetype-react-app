@@ -28,15 +28,6 @@ $ npm run builder:check
 
 TODO: Update `npm init` [#132](https://gecgithub01.walmart.com/electrode/electrode-archetype-react-app/issues/132)
 
-## Documentation
-
-To generate the usage snippet in the `README.md`, run:
-
-```sh
-$ builder help @walmart/electrode-archetype-react-app
-```
-
-in any project where this archetype is installed and paste in the output.
 
 # Release
 
