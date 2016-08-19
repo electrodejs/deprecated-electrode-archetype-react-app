@@ -81,6 +81,8 @@
     "style-loader": "^0.13.0",
     "stylus": "^0.54.5",
     "stylus-relative-loader": "^3.0.0",
+    "sw-precache": "^4.0.0",
+    "sw-toolbox": "^3.2.1",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",

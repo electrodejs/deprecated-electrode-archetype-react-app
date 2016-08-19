@@ -64,7 +64,7 @@ const tasks = {
     desc: "Build static copy of your app's client bundle for development",
     task: ["clean-dist", "build-dist-dev-static"]
   },
-  "build-dist": ["clean-dist", "build-dist-min", "build-dist:flatten-l10n", "build-dist:clean-tmp"],
+  "build-dist": ["clean-dist", "build-dist-min", "build-dist:generate-service-worker", "build-dist:flatten-l10n", "build-dist:clean-tmp"],
   "build-dist-dev-static": {
     desc: false,
     task: `webpack --config ${config.webpack}/webpack.config.dev.static.js --colors`
@@ -77,6 +77,10 @@ const tasks = {
   "build-dist:clean-tmp": {
     desc: false,
     task: () => shell.rm("-rf", "./tmp")
+  },
+  "build-dist:generate-service-worker": {
+    desc: "Generate Service Worker using the options provided in the app/config/sw-precache-config.json file in PROD mode",
+    task: `sw-precache --config=config/sw-precache-config.json --verbose`
   },
   "build-dist:flatten-l10n": {
     desc: false,
@@ -96,7 +100,7 @@ const tasks = {
   "debug": ["build-dev-static", "server-debug"],
   "dev": {
     desc: "Start server with watch in development mode with webpack-dev-server",
-    task: [".webpack-dev", ["server-dev", "server-watch"]]
+    task: [".webpack-dev", ["generate-service-worker", "server-dev", "server-watch"]]
   },
   "dev-static": {
     desc: "Start server in development mode with statically built files",
@@ -104,7 +108,11 @@ const tasks = {
   },
   "hot": {
     desc: "Start server with watch in hot mode with webpack-dev-server",
-    task: [".webpack-dev", ["server-hot", "server-watch"]]
+    task: [".webpack-dev", ["generate-service-worker", "server-hot", "server-watch"]]
+  },
+  "generate-service-worker": {
+    desc: "Generate Service Worker using the options provided in the app/config/sw-precache-config.json file for dev/hot mode",
+    task: `sw-precache --config=config/sw-precache-config.json --verbose --no-handle-fetch`
   },
   "lint": [["lint-client", "lint-client-test", "lint-server", "lint-server-test"]],
   "lint-client": `eslint --ext .js,.jsx -c ${config.eslint}/.eslintrc-react client templates`,
