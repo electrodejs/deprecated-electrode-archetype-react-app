@@ -5,23 +5,45 @@ var mergeWebpackConfig = archetype.devRequire("webpack-partial").default;
 
 var ExtractTextPlugin = archetype.devRequire("extract-text-webpack-plugin");
 var CSSSplitPlugin = archetype.devRequire("css-split-webpack-plugin").default;
+var atImport = archDevRequire("postcss-import");
+var cssnext = archDevRequire("postcss-cssnext");
 
 var autoprefixer = archetype.devRequire("autoprefixer-stylus");
 var cssLoader = archetype.devRequire.resolve("css-loader");
 var styleLoader = archetype.devRequire.resolve("style-loader");
 var stylusLoader = archetype.devRequire.resolve("stylus-relative-loader");
+var postcssLoader = archDevRequire.resolve("postcss-loader");
+
+var cssModuleSupport = process.env.npm_package_config_electrode_archetype_react_app_webpack_css_modules === "true"; // eslint-disable-line max-len
 
 module.exports = function () {
   return function (config) {
-    var query = cssLoader + "?-autoprefixer!" + stylusLoader;
+    var stylusQuery = cssLoader + "?-autoprefixer!" + stylusLoader;
+    var cssQuery = cssLoader + "?modules&-autoprefixer!" + postcssLoader;
+
+    var loaders = [{
+      name: "extract-stylus",
+      test: /\.styl$/,
+      loader: ExtractTextPlugin.extract(styleLoader, stylusQuery)
+    }];
+
+    if (cssModuleSupport) {
+      loaders.push({
+        name: "extract-css",
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract(styleLoader, cssQuery)
+      });
+    }
+
     return mergeWebpackConfig(config, {
       module: {
-        loaders: [{
-          name: "extract",
-          test: /\.styl$/,
-          loader: ExtractTextPlugin.extract(styleLoader, query)
-        }]
+        loaders: loaders
       },
+      postcss: function () {
+        return cssModuleSupport ? [atImport, cssnext({
+          browsers: ["last 2 versions", "ie >= 9", "> 5%"]
+        })] : [];
+       },
       stylus: {
         use: [autoprefixer({browsers: ["last 2 versions", "ie >= 9", "> 5%"]})]
       },
