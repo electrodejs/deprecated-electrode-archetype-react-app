@@ -50,6 +50,17 @@ $ gulp test-watch-all
 $ gulp dev-static
 ```
 
+#### How do I enable CSS Modules and CSS Next?
+
+By default, this archetype assumes your app and components are using Stylus and `.styl` files containing Global CSS. If you want to use CSS Modules + CSS Next, you need opt-in and use `.css` files. This archetype does not support using Stylus and CSS Modules + CSS Next together.
+You can opt-in to CSS Modules + CSS Next by adding a `config` section to your *project's* `package.json` and setting the necessary env variable to `true`:
+
+```
+"config": {
+  "electrode_archetype_react_app_webpack_css_modules": "true"
+}```
+
+
 #### Is there anything else that might be nice for my development?
 
 ```bash
