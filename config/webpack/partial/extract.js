@@ -27,7 +27,7 @@ module.exports = function () {
       loader: ExtractTextPlugin.extract(styleLoader, stylusQuery)
     }];
 
-    if (cssModuleSupport)  {
+    if (cssModuleSupport) {
       loaders.push({
         name: "extract-css",
         test: /\.css$/,
@@ -39,10 +39,10 @@ module.exports = function () {
       module: {
         loaders: loaders
       },
-      postcss: function() {
-        return [atImport, cssnext({
+      postcss: function () {
+        return cssModuleSupport ? [atImport, cssnext({
           browsers: ["last 2 versions", "ie >= 9", "> 5%"]
-        })];
+        })] : [];
        },
       stylus: {
         use: [autoprefixer({browsers: ["last 2 versions", "ie >= 9", "> 5%"]})]
