@@ -135,7 +135,7 @@ const tasks = {
   },
   "run-electrify-cli": {
     desc: false,
-    task: `electrify dist/server/stats.json -O`
+    task: `npm install -g electrode-electrify ; electrify dist/server/stats.json -O`
   },
   "check": ["lint", "test-cov"],
   "check-ci": ["lint", "test-ci"],
