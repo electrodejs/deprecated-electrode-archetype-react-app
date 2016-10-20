@@ -104,7 +104,7 @@ function generateServiceWorker() {
  *
  */
 
-const tasks = {
+let tasks = {
   ".production-env": () => setProductionEnv(),
   ".static-files-env": () => setStaticFilesEnv(),
   ".webpack-dev": () => setWebpackDev(),
@@ -241,6 +241,18 @@ const tasks = {
   "test-server-cov": () => shell.test("-d", "test/server") && exec(`istanbul cover _mocha -- -c --opts ${config.mocha}/mocha.opts test/server`),
   "test-server-dev": () => shell.test("-d", "test/server") && exec(`mocha -c --opts ${config.mocha}/mocha.opts test/server`)
 };
+
+// Check if any .eslintrc file exists on the
+// project root path.
+const customLinterPath = Path.join(process.cwd(), ".eslintrc");
+
+try {
+  fs.accessSync(customLinterPath, fs.constants.F_OK);
+  tasks["lint"] = [["lint-custom"]];
+  tasks["lint-custom"] = `eslint --ext .js,.jsx -c ${customLinterPath} client server`;
+} catch(err) {
+  // We don't want to display any error.
+}
 
 module.exports = function (gulp) {
   setupPath();
