@@ -12,7 +12,7 @@ module.exports = function () {
         loaders: [{
           name: "images",
           test: /\.(jpe?g|png|gif|svg)$/i,
-          loader: fileLoader + "?limit=10000!" + isomorphicLoader
+          loader: fileLoader + "?name=/images/[name].[ext]&limit=10000!" + isomorphicLoader
         }]
       }
     });
