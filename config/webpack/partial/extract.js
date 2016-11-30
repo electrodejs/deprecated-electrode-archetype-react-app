@@ -42,17 +42,29 @@ if (stylusExists && !cssNextExists) {
   /* eslint-enable no-console */
 }
 
+const criticalCSS = new ExtractTextPlugin('[hash].critical.css')
+const externalCSS = new ExtractTextPlugin('[hash].style.css')
+
 module.exports = function () {
   return function (config) {
     var stylusQuery = cssLoader + "?-autoprefixer!" + stylusLoader;
     var cssQuery = cssLoader + "?modules&-autoprefixer!" + postcssLoader;
 
     // By default, this archetype assumes you are using CSS-Modules + CSS-Next
-    var loaders = [{
-      name: "extract-css",
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract(styleLoader, cssQuery)
-    }];
+    var loaders = [
+      {
+        name: "extract-css-external",
+        test: /\.css$/,
+        exclude: /\.critical\.css$/,
+        loader: externalCSS.extract(styleLoader, cssQuery)
+      },
+      {
+        name: "extract-css-critical",
+        test: /\.css$/,
+        include: /\.critical\.css$/,
+        loader: criticalCSS.extract(styleLoader, cssQuery)
+    },
+  ];
 
     if (!cssModuleSupport) {
       loaders.push({
@@ -79,7 +91,8 @@ module.exports = function () {
         }
       },
       plugins: [
-        new ExtractTextPlugin("style.[hash].css")
+        criticalCSS,
+        externalCSS
       ]
     });
   };
