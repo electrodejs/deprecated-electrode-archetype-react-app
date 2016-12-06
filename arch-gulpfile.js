@@ -2,6 +2,7 @@
 
 const Path = require("path");
 const fs = require("fs");
+const spawn = require('child_process').spawn;
 const archetype = require("./config/archetype");
 const gulpHelper = archetype.devRequire("electrode-gulp-helper");
 const shell = gulpHelper.shell;
@@ -133,7 +134,7 @@ function generateServiceWorker() {
   }
 }
 
-function inlineCriticalCSS() {
+function inlineCriticalCSS(cb) {
   const HOST = process.env.HOST || 'localhost';
   const PORT = process.env.PORT || 3000;
   const PATH = process.env.CRITICAL_PATH || '/';
@@ -155,6 +156,7 @@ function inlineCriticalCSS() {
     renderWaitTime: 2000,
     blockJSRequests: false,
   };
+  const serverProcess = spawn('node', ['server/index.js']);
   // Use setTimeout so the server has enough time to bind to the port
   setTimeout(() => {
     penthouse(penthouseOptions, (err, css)  => {
@@ -166,7 +168,8 @@ function inlineCriticalCSS() {
           if (err) {
             throw err;
           }
-          process.exit(0);
+          serverProcess.kill(0);
+          cb();
         })
     });
   }, PARSE_TIMEOUT);
@@ -184,7 +187,6 @@ const tasks = {
   ".static-files-env": () => setStaticFilesEnv(),
   ".webpack-dev": () => setWebpackDev(),
   ".optimize-stats": () => setOptimizeStats(),
-  ".critical-css": () => inlineCriticalCSS(),
   "build": {
     desc: "Build your app's client bundle for production",
     task: ["build-dist"]
@@ -259,7 +261,7 @@ const tasks = {
   },
   "critical-css": {
     desc: "Start server and run penthouse to output critical CSS",
-    task: [["server", ".critical-css"]]
+    task: inlineCriticalCSS
   },
   "generate-service-worker": {
     desc: "Generate Service Worker using the options provided in the app/config/sw-precache-config.json file for prod/dev/hot mode",
