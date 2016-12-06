@@ -8,6 +8,7 @@ const shell = gulpHelper.shell;
 const mkdirp = archetype.devRequire("mkdirp");
 const config = archetype.config;
 const penthouse = require("penthouse");
+const CleanCSS = require('clean-css');
 
 function setupPath() {
   const nmBin = "node_modules/.bin";
@@ -156,11 +157,12 @@ function inlineCriticalCSS() {
   };
   // Use setTimeout so the server has enough time to bind to the port
   setTimeout(() => {
-    penthouse(penthouseOptions, (err, css )  => {
+    penthouse(penthouseOptions, (err, css)  => {
         if (err) {
           throw err;
         }
-        fs.writeFile(targetPath, css, (err) => {
+        const minifiedCSS = new CleanCSS().minify(css).styles;
+        fs.writeFile(targetPath, minifiedCSS, (err) => {
           if (err) {
             throw err;
           }
