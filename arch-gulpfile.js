@@ -7,6 +7,7 @@ const gulpHelper = archetype.devRequire("electrode-gulp-helper");
 const shell = gulpHelper.shell;
 const mkdirp = archetype.devRequire("mkdirp");
 const config = archetype.config;
+const penthouse = require("penthouse");
 
 function setupPath() {
   const nmBin = "node_modules/.bin";
@@ -130,6 +131,44 @@ function generateServiceWorker() {
     return false;
   }
 }
+
+function inlineCriticalCSS() {
+  const HOST = process.env.HOST || 'localhost';
+  const PORT = process.env.PORT || 3000;
+  const PATH = process.env.CRITICAL_PATH || '/';
+  const url = `http://${HOST}:${PORT}${PATH}`;
+  const PARSE_TIMEOUT = 2000 // How long to wait for the server to start
+  const statsPath = Path.resolve(process.cwd(), 'dist/server/stats.json');
+  const stats = JSON.parse(fs.readFileSync(statsPath));
+  const cssAsset = stats.assets.find(({ name }) => name.endsWith('.css'));
+  const cssAssetPath = Path.resolve(process.cwd(), `dist/js/${cssAsset.name}`);
+  const targetPath = Path.resolve(process.cwd(), 'dist/js/critical.css');
+  const penthouseOptions = {
+    url: url,
+    css: cssAssetPath,
+    width: 1440,
+    height: 900,
+    timeout: 30000,
+    strict: false,
+    maxEmbeddedBase64Length: 1000,
+    renderWaitTime: 2000,
+    blockJSRequests: false,
+  };
+  // Use setTimeout so the server has enough time to bind to the port
+  setTimeout(() => {
+    penthouse(penthouseOptions, (err, css )  => {
+        if (err) {
+          throw err;
+        }
+        fs.writeFile(targetPath, css, (err) => {
+          if (err) {
+            throw err;
+          }
+          process.exit(0);
+        })
+    });
+  }, PARSE_TIMEOUT);
+}
 /*
  *
  * For information on how to specify a task, see:
@@ -143,6 +182,7 @@ const tasks = {
   ".static-files-env": () => setStaticFilesEnv(),
   ".webpack-dev": () => setWebpackDev(),
   ".optimize-stats": () => setOptimizeStats(),
+  ".critical-css": () => inlineCriticalCSS(),
   "build": {
     desc: "Build your app's client bundle for production",
     task: ["build-dist"]
@@ -214,6 +254,10 @@ const tasks = {
   "hot": {
     desc: "Start server with watch in hot mode with webpack-dev-server",
     task: [".webpack-dev", ["server-hot", "server-watch", "generate-service-worker"]]
+  },
+  "critical-css": {
+    desc: "Start server and run penthouse to output critical CSS",
+    task: [["server", ".critical-css"]]
   },
   "generate-service-worker": {
     desc: "Generate Service Worker using the options provided in the app/config/sw-precache-config.json file for prod/dev/hot mode",
