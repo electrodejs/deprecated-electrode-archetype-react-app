@@ -1,4 +1,5 @@
 "use strict";
+var fs = require("fs");
 var path = require("path");
 var assign = require("lodash/assign");
 var archetype = require("../../archetype");
