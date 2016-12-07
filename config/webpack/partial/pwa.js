@@ -8,16 +8,17 @@ var webAppManifestLoader = require.resolve("web-app-manifest-loader");
 var SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 var FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 var AddManifestFieldsPlugin = require('../plugins/add-manifest-fields');
-
 var swConfigPath = path.resolve(process.cwd(), "config/sw-config.js");
 
 function getSWConfig() {
-  var swConfig;
+  var swConfig = {};
 
-  try {
-    swConfig = require(swConfigPath);
-  } catch(err) {
-    swConfig = {};
+  if (fs.existsSync(swConfigPath)){
+    try {
+      swConfig = require(swConfigPath);
+    } catch(err) {
+      console.log("Error reading service worker config", err);
+    }
   }
 
   return swConfig;
