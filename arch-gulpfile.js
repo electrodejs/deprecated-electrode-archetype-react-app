@@ -2,7 +2,6 @@
 
 const Path = require("path");
 const fs = require("fs");
-const spawn = require('child_process').spawn;
 const archetype = require("./config/archetype");
 const gulpHelper = archetype.devRequire("electrode-gulp-helper");
 const shell = gulpHelper.shell;
@@ -139,12 +138,12 @@ function inlineCriticalCSS(cb) {
   const PORT = process.env.PORT || 3000;
   const PATH = process.env.CRITICAL_PATH || '/';
   const url = `http://${HOST}:${PORT}${PATH}`;
-  const PARSE_TIMEOUT = 2000 // How long to wait for the server to start
   const statsPath = Path.resolve(process.cwd(), 'dist/server/stats.json');
   const stats = JSON.parse(fs.readFileSync(statsPath));
   const cssAsset = stats.assets.find(({ name }) => name.endsWith('.css'));
   const cssAssetPath = Path.resolve(process.cwd(), `dist/js/${cssAsset.name}`);
   const targetPath = Path.resolve(process.cwd(), 'dist/js/critical.css');
+  var serverPromise = require(Path.resolve(process.cwd(), 'server/index.js'));
   const penthouseOptions = {
     url: url,
     css: cssAssetPath,
@@ -156,9 +155,7 @@ function inlineCriticalCSS(cb) {
     renderWaitTime: 2000,
     blockJSRequests: false,
   };
-  const serverProcess = spawn('node', ['server/index.js']);
-  // Use setTimeout so the server has enough time to bind to the port
-  setTimeout(() => {
+  serverPromise.then(() => {
     penthouse(penthouseOptions, (err, css)  => {
         if (err) {
           throw err;
@@ -168,11 +165,10 @@ function inlineCriticalCSS(cb) {
           if (err) {
             throw err;
           }
-          serverProcess.kill(0);
-          cb();
+          process.exit(0);
         })
     });
-  }, PARSE_TIMEOUT);
+  });
 }
 /*
  *
