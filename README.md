@@ -2,6 +2,10 @@
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
+# Deprecated
+
+This repo has been moved [here](https://github.com/electrode-io/electrode/tree/b7dc8c21697af47a9958fbf337000878a507e046/packages/electrode-archetype-react-app)
+
 A Walmart Labs flavored React Universal App archetype.
 
 ## tl;dr
