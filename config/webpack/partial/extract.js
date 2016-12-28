@@ -49,10 +49,18 @@ module.exports = function () {
 
     // By default, this archetype assumes you are using CSS-Modules + CSS-Next
     var loaders = [{
-      name: "extract-css",
+      name: "extract-css-modules",
       test: /\.css$/,
+      exclude: /node_modules/,
       loader: ExtractTextPlugin.extract(styleLoader, cssQuery)
     }];
+
+    loaders.push({
+      name: "extract-css-globals",
+      test: /\.css$/,
+      include: /node_modules/,
+      loader: ExtractTextPlugin.extract(styleLoader, cssQuery.replace('modules&', ''))
+    });
 
     if (!cssModuleSupport) {
       loaders.push({
